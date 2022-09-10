@@ -5,13 +5,12 @@ include './../Models/Model.php';
 // }
 // spl_autoload_register("my_autoload");
 
+class MainController
+{
 
-Class MainController {
-
-    function test() {
-        print_r( 'work testFunction' );
+    public function test()
+    {
+        print_r('work testFunction');
     }
 
 }
-
-
