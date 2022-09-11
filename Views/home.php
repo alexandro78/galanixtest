@@ -8,8 +8,10 @@
 
  <form enctype="multipart/form-data" action="./../Controllers/MainController.php" method="POST">
     Send this file: <input name="userfile" type="file" />
-    <input type="submit" value="Send File" />
+    <input type="submit" value="Import" />
 </form>
+<br><br>
+<a href="importList.php">View results</a>
 
  </body>
 </html>
