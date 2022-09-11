@@ -11,7 +11,7 @@ class MainController
     public function getFormData()
     {
 
-        $uploaddir = 'C:/xampp/htdocs/galanixtest/';
+        $uploaddir = 'C:/xampp/htdocs/galanixtest/Models/';
         $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
         echo '<pre>';
@@ -25,5 +25,9 @@ class MainController
 
 }
 
-$job = new MainController();
-$job->getFormData();
+$controllerObj = new MainController();
+$controllerObj->getFormData();
+
+$modelObj = new Model();
+$modelObj->readOffFileToBase();
+
