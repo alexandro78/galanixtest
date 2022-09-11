@@ -6,12 +6,12 @@
  </head>
  <body>
 
- <form enctype="multipart/form-data" action="./../Controllers/MainController.php" method="POST">
+ <form enctype="multipart/form-data" action="./Controllers/MainController.php" method="POST">
     Send this file: <input id="uploadField" name="userfile" type="file" accept=".csv"/>
     <input type="submit" value="Import" />
 </form>
 <br><br>
-<a href="importList.php">View results</a>
+<a href="./Views/importList.php">View results</a>
 
 
 

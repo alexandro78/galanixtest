@@ -6,4 +6,4 @@ if (isset($_SESSION['data'])) {
  }
 ?>
 <br><br>
- <a href="home.php">Import data</a>
+ <a href="./../index.php">Import data</a>

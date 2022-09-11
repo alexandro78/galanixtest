@@ -1,5 +1,6 @@
 <?php
 include './../Models/Model.php';
+
 // function my_autoload ($pClassName) {
 //     include(__DIR__ . "/" . $pClassName . ".php");
 // }
@@ -25,9 +26,9 @@ class MainController
 
 }
 
-// $controllerObj = new MainController();
-// $controllerObj->getFormData();
+$controllerObj = new MainController();
+$controllerObj->getFormData();
 
-// $modelObj = new Model();
-// $modelObj->readOffFileToBase();
+$modelObj = new Model();
+$modelObj->readOffFileToBase();
 
