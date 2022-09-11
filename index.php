@@ -1,3 +1,2 @@
 <?php
-
-print('index.php');
+include './Views/home.php';
