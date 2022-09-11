@@ -33,5 +33,3 @@ class Model
     }
 }
 
-$obj = new Model();
-$obj->readOffFile();

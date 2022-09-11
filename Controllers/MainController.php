@@ -8,9 +8,22 @@ include './../Models/Model.php';
 class MainController
 {
 
-    public function test()
+    public function getFormData()
     {
-        print_r('work testFunction');
+
+        $uploaddir = 'C:/xampp/htdocs/galanixtest/';
+        $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+
+        echo '<pre>';
+        if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+            echo "File is valid, and was successfully uploaded.\n";
+        } else {
+            echo "Possible file upload attack!\n";
+        }
+
     }
 
 }
+
+$job = new MainController();
+$job->getFormData();
