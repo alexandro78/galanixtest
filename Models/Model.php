@@ -20,19 +20,21 @@ class Model
     {
         // session_start();
         $mysqli = $this->dataBaseConnector();
-        if (($file = fopen("./../Models/users-1.csv", "r")) !== false) {
+        if (($file = fopen("users-1.csv", "r")) !== false) {
             $i = 0;
             while (($data = fgetcsv($file, 1000)) !== false) {
-
-                // $mysqli->query("SELECT `uid`, `name` FROM `users`");
-
-                $mysqli->query("INSERT INTO `users` (`uid`,`name`,`age`,`email`,`phone`,`gender`) VALUES ('{$data[0]}','{$data[1]}','{$data[2]}','{$data[3]}','{$data[4]}','{$data[5]}')");
-
-                $check2 = $check->num_rows;
-
-                $_SESSION['data'][$i] = $data;
-                //
+                if ($i != 0) {
+        
+                    $checkExistUid = $mysqli->query("SELECT `uid` FROM `users` WHERE `uid` = $data[0]");
+              
+                    if ($checkExistUid->num_rows == 1) {
+                        $mysqli->query("UPDATE `users` SET `name`= '{$data[1]}', `age`= '{$data[2]}', `email`= '{$data[3]}', `phone`= '{$data[4]}', `gender`= '{$data[5]}' WHERE `uid` = '{$data[5]}';");
+                    } else {
+                        $mysqli->query("INSERT INTO `users` (`uid`,`name`,`age`,`email`,`phone`,`gender`) VALUES ('{$data[0]}','{$data[1]}','{$data[2]}','{$data[3]}','{$data[4]}','{$data[5]}')");
+                    }
+                }
                 $i++;
+                $_SESSION['data'][$i] = $data;
             }
             fclose($file);
         }
