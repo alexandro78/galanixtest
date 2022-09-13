@@ -18,9 +18,9 @@ class Model
 
     public function readOffFileToBase()
     {
-        // session_start();
+        // session_start();"users-1.csv"
         $mysqli = $this->dataBaseConnector();
-        if (($file = fopen("users-1.csv", "r")) !== false) {
+        if (($file = fopen("./../Models/" . $_FILES['userfile']['name'], "r")) !== false) {
             $i = 0;
             while (($data = fgetcsv($file, 1000)) !== false) {
                 if ($i != 0) {
