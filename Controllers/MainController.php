@@ -11,8 +11,8 @@ class MainController
 
     public function getFormData()
     {
-
-        $uploaddir = 'C:/xampp/htdocs/galanixtest/Models/';
+        //dirname(__FILE__);
+        $uploaddir = './../Models/';
         $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
         echo '<pre>';
