@@ -7,11 +7,12 @@
  <body>
 
  <form enctype="multipart/form-data" action="./Controllers/MainController.php" method="POST">
-    Send this file: <input id="uploadField" name="userfile" type="file" accept=".csv"/>
-    <input type="submit" value="Import" />
+   <pre>Send this file:<input id="uploadField" name="userfile" type="file" accept=".csv"/><input type="submit" value="Import" />
 </form>
-<br><br>
-<a href="./Views/importList.php">View results</a>
+<form action="./Views/clearTable.php" method="POST">
+    <input type="submit" value="Clear all records" />
+</form>
+    <a href="./Views/importList.php">View results</a>
 
 
 

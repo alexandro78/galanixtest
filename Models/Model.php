@@ -21,14 +21,13 @@ class Model
     {
         $mysqli = $this->dataBaseConnector();
         if (($file = fopen("./../Models/" . $_FILES['userfile']['name'], "r")) !== false) {
-            $i = 0;
+
             $data = fgetcsv($file, 1000);
             for ($j = 0; $j < count($this->checkArr); $j++) {
                 if ($this->checkArr[$j] == $data[$j]) {
                     $g = $this->checkArr[$j] == $data[$j];
                 } else {
-                    //will be return file invalid error
-                    break;
+                    return print_r('file invalid structure error');
                 }
             }
             while (($data = fgetcsv($file, 1000)) !== false) {
@@ -46,4 +45,16 @@ class Model
         header('Location: ./../Views/importList.php');
         // exit();
     }
+
+    public function clearMethod(){
+        $mysqli = $this->dataBaseConnector();
+        $mysqli->query("DELETE FROM `users`");
+
+
+    }
+
+
+
+
+
 }
