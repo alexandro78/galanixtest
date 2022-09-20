@@ -46,15 +46,16 @@ class Model
         // exit();
     }
 
-    public function clearMethod(){
+    public function showDataFromTable()
+    {
         $mysqli = $this->dataBaseConnector();
-        $mysqli->query("DELETE FROM `users`");
-
-
+        return $mysqli->query("SELECT `id`,`uid`,`name`, `age`,`email`,`phone`,`gender` FROM `users`");
     }
 
-
-
-
+    public function clearMethod()
+    {
+        $mysqli = $this->dataBaseConnector();
+        $mysqli->query("DELETE FROM `users`");
+    }
 
 }
