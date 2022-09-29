@@ -1,9 +1,10 @@
+<?php 
 
-<?php
 include './../Models/Model.php';
 $modelObj = new Model();
-$table = $modelObj->showDataFromTable();
+$table = $modelObj->filterData();
 ?>
+
 
 <style>
             table,
@@ -14,7 +15,7 @@ $table = $modelObj->showDataFromTable();
             }
 </style>
 <table>
-<form method="GET" action="sortedList.php">
+<form method="GET" action="importList.php">
 <tr>
     <th>id</th>
     <th>uid</th>

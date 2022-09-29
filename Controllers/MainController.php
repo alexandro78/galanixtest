@@ -15,8 +15,6 @@ class MainController
         $uploaddir = './../Models/';
         $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
-
-        
         echo '<pre>';
         if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
             echo "File was successfully uploaded for import\n";
@@ -26,6 +24,8 @@ class MainController
 
     }
 
+    
+
 }
 
 $controllerObj = new MainController();
@@ -33,4 +33,3 @@ $controllerObj->getFormData();
 
 $modelObj = new Model();
 $modelObj->readOffFileToBase();
-

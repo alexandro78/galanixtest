@@ -46,6 +46,65 @@ class Model
         // exit();
     }
 
+    public function filterData()
+    {
+        $mysqli = new mysqli('localhost', 'root', '', 'galanix_base');
+
+        if ($_GET["id"] != "") {
+            print_r("there is id ");
+            $result = $mysqli->query("SELECT `id`,`uid`,`name`, `age`,`email`,`phone`,`gender` FROM `users` WHERE `id` = {$_GET["id"]}");
+            $chek++;
+        }
+
+        if ($_GET["uid"] != "") {
+            print_r("there is uid ");
+            // retrive data filtered by uid
+            $result = $mysqli->query("SELECT `id`,`uid`,`name`, `age`,`email`,`phone`,`gender` FROM `users` WHERE `uid` = {$_GET["uid"]}");
+            $chek++;
+        }
+
+        if ($_GET["name"] != "") {
+            print_r("there is name ");
+            // retrive data filtered by name
+            $result = $mysqli->query("SELECT `id`,`uid`,`name`, `age`,`email`,`phone`,`gender` FROM `users` WHERE `name` = {$_GET["name"]}");
+            $chek++;
+        }
+
+        if ($_GET["age"] != "") {
+            print_r("there is age ");
+            // retrive data filtered by age
+            $result = $mysqli->query("SELECT `id`,`uid`,`name`, `age`,`email`,`phone`,`gender` FROM `users` WHERE `age` = {$_GET["age"]}");
+            $chek++;
+        }
+
+        if ($_GET["email"] != "") {
+            print_r("there is email ");
+            // retrive data filtered by email
+            $result = $mysqli->query("SELECT `id`,`uid`,`name`, `age`,`email`,`phone`,`gender` FROM `users` WHERE `email` = {$_GET["email"]}");
+            $chek++;
+        }
+
+        if ($_GET["phone"] != "") {
+            print_r("there is phone ");
+            // retrive data filtered by phone
+            $result = $mysqli->query("SELECT `id`,`uid`,`name`, `age`,`email`,`phone`,`gender` FROM `users` WHERE `phone` = {$_GET["phone"]}");
+
+        }
+
+        if ($_GET["gender"] != "") {
+            print_r("there is gender ");
+            // retrive data filtered by gender
+            $result = $mysqli->query("SELECT `id`,`uid`,`name`, `age`,`email`,`phone`,`gender` FROM `users` WHERE `gender` = {$_GET["gender"]}");
+            $chek++;
+        }
+        if ($chek) {
+            return $result;
+        } else {
+            header('Location: ./../Views/importList.php');
+        }
+
+    }
+
     public function showDataFromTable()
     {
         $mysqli = $this->dataBaseConnector();
